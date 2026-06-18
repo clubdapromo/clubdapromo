@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Club da Promo – Ofertas Exclusivas Todo Dia</title>
+  <meta name="description" content="Entrar no grupo VIP e receba as melhores promoções da Amazon, Shopee e Mercado Livre antes de todo mundo. Gratuito e exclusivo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    /* ── TOKENS ── */
+    :root {
+      --red:    #e8132a;
+      --red-dk: #b80e20;
+      --gold:   #f5c518;
+      --white:  #ffffff;
+      --gray:   #1c1c1c;
+      --gray2:  #2a2a2a;
+      --text:   #d4d4d4;
+      --radius: 14px;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--red);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      animation: pulse-bar 2s infinite;
+    }
+    @keyframes pulse-bar {
+      0%, 100% { background: var(--red); }
+      50%       { background: var(--red-dk); }
+    }
+
+    /* ── HEADER / LOGO ── */
+    header {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .logo span { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 60px 24px 70px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,19,42,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 9vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero p.sub {
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      color: var(--text);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* ── CTA BUTTON ── */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 18px 38px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 32px rgba(232,19,42,0.45);
+    }
+    .btn-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 40px rgba(232,19,42,0.6); }
+    .btn-cta:active { transform: translateY(0); }
+    .btn-cta svg { flex-shrink: 0; }
+
+    .btn-pulse {
+      animation: btn-glow 2s ease-in-out infinite;
+    }
+    @keyframes btn-glow {
+      0%, 100% { box-shadow: 0 4px 32px rgba(232,19,42,0.45); }
+      50%       { box-shadow: 0 4px 52px rgba(232,19,42,0.85); }
+    }
+
+    .cta-note {
+      margin-top: 14px;
+      font-size: 0.78rem;
+      color: #666;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── LOGOS PLATAFORMAS ── */
+    .platforms {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      padding: 18px 24px 40px;
+      flex-wrap: wrap;
+    }
+    .platform-pill {
+      background: var(--gray2);
+      border: 1px solid #333;
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #bbb;
+    }
+    .dot-amz { width:9px;height:9px;border-radius:50%;background:#f90;flex-shrink:0; }
+    .dot-shp { width:9px;height:9px;border-radius:50%;background:#f05d23;flex-shrink:0; }
+    .dot-ml  { width:9px;height:9px;border-radius:50%;background:#ffe600;flex-shrink:0; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #2e2e2e, transparent);
+      margin: 0 24px;
+    }
+
+    /* ── BENEFÍCIOS ── */
+    .benefits {
+      padding: 64px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: 0.03em;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--gray);
+      border: 1px solid #272727;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: var(--red); transform: translateY(-4px); }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── PROVA SOCIAL ── */
+    .social-proof {
+      background: var(--gray);
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 64px 24px;
+    }
+    .social-proof .inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .counter-row {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+    .counter {
+      text-align: center;
+    }
+    .counter .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+    .counter .lbl {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .testi {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 10px; }
+    .testi p { font-size: 0.88rem; color: var(--text); line-height: 1.6; margin-bottom: 14px; }
+    .testi-name { font-size: 0.78rem; font-weight: 700; color: #666; }
+
+    /* ── COMO FUNCIONA ── */
+    .how {
+      padding: 64px 24px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: flex;
+      gap: 24px;
+      padding: 28px 0;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 60px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #2e2e2e, transparent);
+    }
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .step-body p  { font-size: 0.88rem; color: var(--text); line-height: 1.6; }
+
+    /* ── CTA FINAL ── */
+    .final-cta {
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 100%, rgba(232,19,42,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .final-cta p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 36px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid #1e1e1e;
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #444;
+      line-height: 1.8;
+    }
+    footer a { color: #555; text-decoration: underline; }
+
+    /* ── URGÊNCIA FLUTUANTE ── */
+    .urgency-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      border-top: 1px solid #2a2a2a;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+    .urgency-bar span {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+    .urgency-bar strong { color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 520px) {
+      .hero h1 { font-size: 2.6rem; }
+      .btn-cta { font-size: 1rem; padding: 16px 28px; }
+      .counter-row { gap: 32px; }
+      .urgency-bar { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn-pulse, .topbar { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA TOPO -->
+  <div class="topbar">
+    🔥 Vagas limitadas no grupo VIP — Garanta a sua agora!
+  </div>
+
+  <!-- LOGO -->
+  <header>
+    <div class="logo">Club da <span>Promo</span></div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">✦ Grupo VIP Gratuito</div>
+    <h1>As melhores ofertas<br/>antes de todo<br/><em>mundo</em></h1>
+    <p class="sub">
+      Receba diariamente os melhores cupons e promoções relâmpago da Amazon, Shopee e Mercado Livre — direto no seu celular, sem pagar nada.
+    </p>
+    <a href="SEU_LINK_AQUI" class="btn-cta btn-pulse" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      ENTRAR NO GRUPO VIP
+    </a>
+    <p class="cta-note">🔒 Grátis · Sem spam · Saia quando quiser</p>
+  </section>
+
+  <!-- PLATAFORMAS -->
+  <div class="platforms">
+    <div class="platform-pill"><span class="dot-amz"></span>Amazon</div>
+    <div class="platform-pill"><span class="dot-shp"></span>Shopee</div>
+    <div class="platform-pill"><span class="dot-ml"></span>Mercado Livre</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BENEFÍCIOS -->
+  <section class="benefits">
+    <p class="section-label">Por que entrar</p>
+    <h2 class="section-title">Tudo que você ganha de graça</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>Ofertas em primeira mão</h3>
+        <p>Você recebe as promoções relâmpago antes de todo mundo — antes do preço subir de volta.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Cupons exclusivos</h3>
+        <p>Cupons selecionados a dedo das maiores lojas do Brasil. Só os que realmente valem a pena.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📱</span>
+        <h3>Tudo no seu celular</h3>
+        <p>Notificação direta no WhatsApp ou Telegram, sem precisar ficar caçando promoção.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛡️</span>
+        <h3>100% gratuito</h3>
+        <p>Sem mensalidade, sem taxa de entrada. O grupo é e sempre será gratuito para os membros.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROVA SOCIAL -->
+  <section class="social-proof">
+    <div class="inner">
+      <p class="section-label">Quem já está dentro</p>
+      <h2 class="section-title">Números que falam por si</h2>
+      <div class="counter-row">
+        <div class="counter">
+          <div class="num" id="cnt1">0</div>
+          <div class="lbl">Membros ativos</div>
+        </div>
+        <div class="counter">
+          <div class="num" id="cnt2">0</div>
+          <div class="lbl">Ofertas compartilhadas</div>
+        </div>
+        <div class="counter">
+          <div class="num" id="cnt3">0</div>
+          <div class="lbl">Em economia gerada</div>
+        </div>
+      </div>
+
+      <div class="testimonials">
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Comprei um fone que queria há meses por quase metade do preço. O link chegou no grupo antes de qualquer site de cupom."</p>
+          <div class="testi-name">— Juliana M., SP</div>
+        </div>
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Já economizei mais de R$400 só neste mês. As promoções são reais e o pessoal do grupo ainda confirma antes de postar."</p>
+          <div class="testi-name">— Carlos R., MG</div>
+        </div>
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Entrei com zero expectativa e fiquei surpreso. Promoções boas todo dia, sem spam, sem enrolação."</p>
+          <div class="testi-name">— Fernanda L., RJ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="how">
+    <p class="section-label">Simples assim</p>
+    <h2 class="section-title">Como funciona</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Clica no botão abaixo</h3>
+          <p>Um clique e você já está dentro. Nada de cadastro, formulário ou dados pessoais.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Receba as ofertas todo dia</h3>
+          <p>A gente garimpa as melhores promoções da Amazon, Shopee e Mercado Livre e manda pra você direto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Compre, economize e aproveite</h3>
+          <p>Clica no link do produto, compra normalmente na loja e aproveita o desconto. Simples.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final-cta">
+    <h2>Pronto pra economizar<br/>de verdade?</h2>
+    <p>Mais de mil pessoas já estão recebendo as melhores ofertas todo dia. Não fica de fora.</p>
+    <a href="SEU_LINK_AQUI" class="btn-cta btn-pulse" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      ENTRAR NO GRUPO VIP AGORA
+    </a>
+    <p class="cta-note" style="margin-top:14px;">🔒 Grátis · Saia quando quiser</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Club da Promo · clubdapromo.com.br</p>
+    <p style="margin-top:6px;">
+      Este site pode conter links de afiliados. Ao comprar pelos nossos links, você apoia o trabalho do Club da Promo sem pagar nada a mais.
+    </p>
+  </footer>
+
+  <!-- BARRA URGÊNCIA FLUTUANTE -->
+  <div class="urgency-bar">
+    <span>🟢 <strong>237 pessoas</strong> entraram nas últimas 24h</span>
+    <a href="SEU_LINK_AQUI" class="btn-cta" style="padding:10px 22px;font-size:0.85rem;" target="_blank" rel="noopener">
+      ENTRAR GRÁTIS
+    </a>
+  </div>
+
+  <!-- CONTADOR ANIMADO -->
+  <script>
+    function animateCount(el, target, suffix, duration) {
+      let start = 0;
+      const step = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.textContent = Math.floor(start).toLocaleString('pt-BR') + suffix;
+      }, 16);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCount(document.getElementById('cnt1'), 5200,  '+', 1600);
+          animateCount(document.getElementById('cnt2'), 12000, '+', 1800);
+          animateCount(document.getElementById('cnt3'), 280,   'K+', 1400);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(document.getElementById('cnt1'));
+  </script>
+
+</body>
+</html>
